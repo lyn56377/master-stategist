@@ -69,3 +69,9 @@ if __name__ == '__main__':
 @app.route('/strategy', methods=['GET'])
 def strategy_page():
     return render_template('strategy.html')
+from flask import send_from_directory
+
+@app.route('/<filename>')
+def serve_verification_file(filename):
+    return send_from_directory('.', filename)
+
